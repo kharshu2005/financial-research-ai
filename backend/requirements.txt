@@ -8,3 +8,5 @@ langgraph
 openai
 tavily-python
 redis
+sqlalchemy
+psycopg2-binary
