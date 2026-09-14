@@ -10,3 +10,4 @@ tavily-python
 redis
 sqlalchemy
 psycopg2-binary
+ollama
