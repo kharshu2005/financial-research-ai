@@ -6,7 +6,7 @@ import httpx
 
 SEC_USER_AGENT = os.getenv(
     "SEC_USER_AGENT",
-    "FinancialResearchAI/1.0 contact@example.com",
+    "FinancialResearchAI/1.0 kharshu2005@gmail.com",
 )
 
 COMPANY_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
