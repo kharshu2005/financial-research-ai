@@ -10,3 +10,4 @@ dist/
 build/
 
 .vscode/
+backend/data/vector_store/index.faiss
