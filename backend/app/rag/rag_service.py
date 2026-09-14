@@ -4,7 +4,6 @@ import numpy as np
 
 from app.rag.pdf_loader import extract_text_from_pdf
 from app.rag.chunker import chunk_text
-from app.rag.vector_store import load_vector_store
 
 
 REPORT_DIR = Path("data/reports")
@@ -30,6 +29,9 @@ def build_rag_context(
     )
 
     chunks = chunk_text(text)
+
+    # Load the vector store only when RAG is actually used
+    from app.rag.vector_store import load_vector_store
 
     index, model = load_vector_store(
         ticker
