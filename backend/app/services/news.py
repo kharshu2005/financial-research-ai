@@ -86,7 +86,8 @@ def is_relevant_article(
     """
 
     if not title:
-        return False
+
+      return False
 
     # --------------------------------------------------------
     # NORMALIZE TEXT
@@ -105,7 +106,6 @@ def is_relevant_article(
     # --------------------------------------------------------
     # 1. TICKER IN TITLE
     # --------------------------------------------------------
-
     if ticker_normalized and ticker_normalized in title_normalized:
         return True
 
@@ -155,6 +155,21 @@ def is_relevant_article(
 
             if matches >= 2:
                 return True
+
+        # Also check article content/summary for company relevance
+    content_normalized = normalize(content or "")
+
+    
+
+    if company_name:
+        normalized_keywords = [
+            normalize(keyword)
+            for keyword in get_company_keywords(company_name)
+            if keyword
+        ]
+
+        if any(keyword in content_normalized for keyword in normalized_keywords):
+            return True
 
     return False
 

@@ -38,6 +38,8 @@ import {
   YAxis,
 } from "recharts";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 // ============================================================
 // TYPES
 // ============================================================
@@ -314,7 +316,7 @@ const analyzeCompany = async () => {
 
   try {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/research/${encodeURIComponent(
+      `${API_URL}/api/research/${encodeURIComponent(
         ticker
       )}`,
       {
@@ -328,6 +330,10 @@ const analyzeCompany = async () => {
     ) {
       setFinalReport(
         response.data.data.final_report
+      );
+
+      setNewsData(
+        response.data.data.final_report.major_developments
       );
 
       setTimeout(() => {
@@ -377,7 +383,7 @@ const analyzeCompany = async () => {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/company/${encodeURIComponent(
+        `${API_URL}/api/company/${encodeURIComponent(
           ticker
         )}`,
         {
@@ -442,7 +448,7 @@ const analyzeCompany = async () => {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/news/${encodeURIComponent(
+        `${API_URL}/api/news/${encodeURIComponent(
           ticker
         )}`,
         {
@@ -505,7 +511,7 @@ const analyzeCompany = async () => {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/risk/${encodeURIComponent(
+        `${API_URL}/api/risk/${encodeURIComponent(
           ticker
         )}`,
         {
@@ -568,7 +574,7 @@ const analyzeCompany = async () => {
 
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/reviewer/${encodeURIComponent(
+        `${API_URL}/api/reviewer/${encodeURIComponent(
           ticker
         )}`,
         {
@@ -624,7 +630,7 @@ const analyzeCompany = async () => {
     try {
 
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/financials/${encodeURIComponent(
+        `${API_URL}/api/financials/${encodeURIComponent(
           ticker
         )}`,
         {
@@ -721,7 +727,7 @@ const analyzeCompany = async () => {
     try {
 
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/analysis/${encodeURIComponent(
+        `${API_URL}/api/analysis/${encodeURIComponent(
           ticker
         )}`,
         {
